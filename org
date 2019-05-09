@@ -1,0 +1,14 @@
+# vim /etc/logrotate.d/org 
+
+/var/log/org/org.log{
+	rotate 7
+	size 10k
+  compress
+  delaycompress
+  missingok
+  copytruncate
+  create 666 root root
+  postrotate
+		/usr/lib/rsyslog/rsyslog-rotate
+	endscript
+}
